@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Aggiunta di un nuovo Player</title>
+</head>
+<body>
+	<h1>Aggiungi un nuovo Player</h1>
+	<form method="POST" action="/addplayer" th:object="${player}">
+	    <table>
+		<tr>
+			<td> <label for="name">Nome:</label> </td>
+			<td>
+				<input type="text" th:field="*{name}" id="name" placeholder="Nome" />
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="lastName">Cognome:</label></td>
+			<td>
+				<input type="text" th:field="*{lastName}" id="lastName" placeholder="Cognome" />
+				<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="team">Squadra:</label></td>
+			<td>
+				<input type="text" th:field="*{team}" id="team" placeholder="Squadra" />
+				<span th:if="${#fields.hasErrors('team')}" th:errors="*{team}"></span>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="position">Posizione:</label></td>
+			<td>
+				<input type="text" maxlength="1" size="1" th:field="*{position}" id="position" placeholder="Posizione" />
+				<span th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Aggiungi"></td>
+		</tr>
+		</table>
+	</form>
+</body>
+</html>

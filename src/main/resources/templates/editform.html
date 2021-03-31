@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Modifica di un Player</title>
+</head>
+<body>
+	<h1>Player da modificare</h1>
+	<form method="POST" action="/editsave" th:object="${player}">
+		<table>
+			<tr>
+				<td></td>
+				<td><input type="hidden" th:field="*{id}" id="id" /></td>
+			</tr>
+			<tr>
+				<td><label for="name"> Nome: </label> </td>
+				<td>
+					<input type="text" th:field="*{name}" id="name" />
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="lastName"> Cognome: </label></td>
+				<td>
+					<input type="text" th:field="*{lastName}" id="lastName" />
+					<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="team"> Squadra: </label></td>
+				<td>
+					<input type="text" th:field="*{team}" id="team" />
+					<span th:if="${#fields.hasErrors('team')}" th:errors="*{team}"></span>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="position"> Posizione: </label></td>
+				<td>
+					<input type="text" maxlength="1" size="1" th:field="*{position}" id="position" />
+					<span th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Salva Modifiche"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

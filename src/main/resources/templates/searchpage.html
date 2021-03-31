@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Risultato della ricerca di Player</title>
+</head>
+<body>
+	<div th:if="${#lists.isEmpty(players)}">
+		<h2>Nessun player come risultato della ricerca</h2>
+	</div>
+	<div th:unless="${#lists.isEmpty(players)}">
+		<h2>Risultato della ricerca</h2>
+		<table th:border="2" th:cellpadding="5">
+		 	<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Squadra</th>
+					<th>Posizione</th>
+			    </tr>
+			<thead>
+			<tbody>
+				<tr th:each="p : ${players}">  
+					<td th:text="${p.id}"></td>  
+					<td th:text="${p.name}"></td>  
+					<td th:text="${p.lastName}"></td>  
+					<td th:text="${p.team}"></td>
+					<td th:text="${p.position}"></td>
+			 	</tr>
+			</tbody>
+		</table> 	
+	</div>
+	<br/>  
+	<a href="/players">Torna alla lista di Player</a>  
+</body>
+</html>

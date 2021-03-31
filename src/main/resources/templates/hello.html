@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>hello page</title>
 </head>
 <body>
 	<p th:text="'Hello, ' + ${name} + '!'" />
+	<span th:text="#{msg.welcome}" /> 
+	<p>Developer: <span style="font-weight: bold" th:text=#{msg.developer} /></p>
 </body>
 </html>
