@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'players'
+      # Si puo' creare un nuovo user 'user_two' con password 'test' con permessi di super_user per il database 'players' se non si vuole usare l user di default 'root' 
+      # MYSQL_USER: 'user_two'
+      # MYSQL_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: 'capone'
+    ports:
+      # <Porta esposta> : < MySQL Port avviata nel container>
+      - '3308:3306'
+      # Dove i dati del database saranno persistiti
+    volumes:
+      - "./config/my.conf:/etc/mysql/conf.d/config-file.cnf"
+      - "./data:/var/lib/mysql:rw"
+      
+  admin:    
+    image: adminer    
+    ports:      
+      - "8080:8080"  
